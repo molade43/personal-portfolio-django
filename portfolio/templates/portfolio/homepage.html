@@ -1,0 +1,15 @@
+{% extends 'portfolio/base.html'%} {% block content %}
+<p>This is the Homepage</p>
+<!-- {% load static %} -->
+
+<!-- <a href="{% static 'portfolio/resume.docx' %}">Resume</a> -->
+<a href="{% url 'blog:all_blogs' %}">Blog</a>
+
+<img src="{% static 'portfolio/update.jpg' %}" alt=""> {% for project in projects %}
+
+<h1>{{ project.title }}</h1>
+<br> {{ project.description }}
+<br>
+<img src="{{ project.image.url }}" alt="" style="object-fit: contain; width: 50%;">
+<br> {% if project.url %}
+<a href="{{ project.url }}">Link </a> {% endif %} {% endfor %} {% endblock %}
